@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+    <div class=" flex border border-black items-center p-2">
+        <textarea id="my-text" class="background-opacity-zero resize-none  w-full" maxlength = "300" type="text" name="ValueProp" value="{{formatNullString .OrgProfileData.ValueProp}}" ></textarea>
+    </div>
+    <div class="flex justify-end py-2">
+        <p id="result"></p>
+    </div>
+    <script>
+        // textarea
+        var myText = document.getElementById("my-text");
+        var result = document.getElementById("result");
+        var limit = 300;
+        result.textContent = 0 + "/" + limit;
+        myText.addEventListener("input",function(){
+
+        var textLength = myText.value.length;
+
+        result.textContent = textLength + "/" + limit;
+
+        if(textLength > limit){
+        myText.style.borderColor = "#ff2851";
+        result.style.color = "#ff2851";
+        }
+        else{
+        myText.style.borderColor = "#31821b";
+        result.style.color = "#31821b";
+        }
+        });
+        // textarea
+    </script>
+</body>
+</html>
